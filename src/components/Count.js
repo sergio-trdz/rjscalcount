@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Row, Container, Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function Count() {
+
+function Count(props) {
     return (
         <Container style={{height: "100vh", width: "100%", paddingTop: 30}}>
             <Row>
@@ -20,13 +21,15 @@ function Count() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                <td>Apple</td>
-                                <td>50</td>
-                                <td>+</td>
+                            {props.foods.map(food => {
+                        return (<tr>
+                                    <td>{food.enteredfood}</td>
+                                    <td>{food.enteredcal}</td>  
+                                    <td>+</td>
                                 <td>1</td>
-                                <td>-</td>
-                                </tr>
+                                <td>-</td>      
+                                </tr>)
+                    })}
                             </tbody>
                         </Table>
                     </Row>
@@ -35,6 +38,7 @@ function Count() {
                 <Form.Control  type="text"  placeholder="50"  />
             </Row>
         </Container>
+        
     )
 }
 

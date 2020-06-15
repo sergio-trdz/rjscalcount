@@ -12,48 +12,44 @@ class App extends Component {
   state = {
     foods: [
       {
-		id: uuid.v4(),
-		enteredcal: 50,
-		enteredfood: 'carrot',
+				id: uuid.v4(),
+				titlee: 50,
+        		title: 'carrot',
       },
       {
-		id: uuid.v4(),
-		enteredcal: 20,
-		enteredfood: 'apple',
+				id: uuid.v4(),
+				titlee: 20,
+        		title: 'apple',
       }
-	]
-	
-
+    ]
 	}
 	
-	addFood = (enteredfood, enteredcal) => {
+	addFood = (title) => {
     const newFood = {
       id: uuid.v4(),
-      enteredcal,
-      enteredfood,
+      title,
     }
 
     const newfoods = this.state.foods
     newfoods.push(newFood);
     
     this.setState({ 
-	  foods: newfoods
+      foods: newfoods
     });
 	}
-	
 	
 render () {
 		return (
 			<Router>
 			<Container>	
 					<Row>
-						<Col>
-							<Count foods={this.state.foods}/>
-						</Col>
-						<Col>
-							<Add addFood={this.addFood}/>
-							<Food foods={this.state.foods}/>
-						</Col>
+							<Col>
+								<Count/>
+							</Col>
+							<Col>
+								<Add addFood={this.addFood}/>
+								<Food foods={this.state.foods}/>
+							</Col>
 					</Row>
 			</Container>
 			</Router>

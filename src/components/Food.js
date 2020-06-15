@@ -3,6 +3,8 @@ import {  Row, Container, Table, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Food(props) {
+
+
     return (
     <Container style={{height: "50vh", width: "100%", paddingTop: 30}}>
         <Row>
@@ -21,11 +23,11 @@ function Food(props) {
                 <tbody>
                     {props.foods.map(food => {
                         return (<tr>
-                            <button type="button" class="btn btn-dark" >ADD</button>
-                            <td>{food.title}</td>
-                            <td>{food.calories}</td>
-                            <td><Button variant="danger">Delete</Button></td>
-                        </tr>)
+                                    <Button class="btn btn-dark" >ADD</Button>
+                                    <td>{food.enteredfood}</td>
+                                    <td>{food.enteredcal}</td>
+                                    <td><Button variant="danger">Delete</Button></td>    
+                                </tr>)
                     })}
                 </tbody>
             </Table>
